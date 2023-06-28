@@ -13,7 +13,7 @@ import static com.amazon.page.ResultadosBusqueda.ITEM_COMPRA_ENVIO_COLOMBIA;
 
 public class BuscarItem {
     public static Performable conEnvioColombia(String item) {
-        return Task.where("{0} buscando el item ´" +item+"´ con envío a Colombia",
+        return Task.where("{0} buscando el item ´" + item + "´ con envío a Colombia",
                 Enter.theValue(item).into(INPUT_BARRA_BUSQUEDA).thenHit(Keys.ENTER),
                 SeleccionarItem.conEnvioColombia()
         );

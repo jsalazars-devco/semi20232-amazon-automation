@@ -10,7 +10,7 @@ Característica: agregar al carrito
 
   Escenario: agregar 3 items al carrito de compras
     Cuando Carlos agrega al carrito los items
-      | "control pc"     |
-      | "mouse gaming"   |
-      | "teclado gaming" |
-    Entonces debe verse 3 item en el carrito de compras
+      | control gamer pc |
+      | mouse gaming     |
+      | teclado gaming   |
+    Entonces debe verse 3 items en el carrito de compras
