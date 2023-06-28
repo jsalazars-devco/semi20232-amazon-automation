@@ -1,5 +1,6 @@
 package com.amazon.stepdefinitions;
 
+import com.amazon.tasks.ClickLogo;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
@@ -23,7 +24,7 @@ public class AgregarItemListaRegalosStepDefinitions {
     public void buscoPaginaListas(Actor actor) {
         actor.attemptsTo(
                 Open.url("https://www.amazon.com"),
-                Click.on("//input[@data-action-type='DISMISS']"),
+                ClickLogo.clickLogo(),
                 Click.on(LINK_LISTAS)
         );
     }

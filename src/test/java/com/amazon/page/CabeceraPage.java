@@ -10,4 +10,5 @@ public class CabeceraPage {
     public static Target TARJETAS_REGALO = Target.the("boton tarjetas de regalo").locatedBy("//div[.='Tarjetas de Regalo']/..");
     public static Target TARJETAS_REGALO_ELECTRONICAS = Target.the("link tarjetas de regalo electronicas").locatedBy("//a[contains(text(),'Tarjetas de regalo electr')]");
     public static Target LINK_LISTAS = Target.the("link listas").locatedBy("//a[@data-csa-c-content-id='nav_cs_registry']");
+    public static Target LOGO = Target.the("link logo").located(By.id("nav-logo-sprites"));
 }

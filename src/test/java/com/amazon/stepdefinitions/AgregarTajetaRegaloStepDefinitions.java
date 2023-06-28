@@ -1,5 +1,6 @@
 package com.amazon.stepdefinitions;
 
+import com.amazon.tasks.ClickLogo;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
@@ -20,6 +21,7 @@ public class AgregarTajetaRegaloStepDefinitions {
     public void buscoUnaTargetaRegalo() {
         OnStage.theActorCalled("comprador").attemptsTo(
                 Open.url("https://www.amazon.com"),
+                ClickLogo.clickLogo(),
                 Click.on(TODO_MENU),
                 Click.on(TARJETAS_REGALO),
                 Click.on(TARJETAS_REGALO_ELECTRONICAS),

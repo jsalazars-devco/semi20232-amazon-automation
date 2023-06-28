@@ -9,13 +9,23 @@ import org.openqa.selenium.Keys;
 
 import static com.amazon.page.CabeceraPage.INPUT_BARRA_BUSQUEDA;
 import static com.amazon.page.DetalleItem.BUT_AGREGAR_CARRITO;
-import static com.amazon.page.ResultadosBusqueda.ITEM_COMPRA_ENVIO_COLOMBIA;
+import static com.amazon.page.ResultadosBusqueda.*;
 
 public class BuscarItem {
     public static Performable conEnvioColombia(String item) {
         return Task.where("{0} buscando el item ´" + item + "´ con envío a Colombia",
                 Enter.theValue(item).into(INPUT_BARRA_BUSQUEDA).thenHit(Keys.ENTER),
                 SeleccionarItem.conEnvioColombia()
+        );
+    }
+
+    public static Performable conFiltro(String item, Integer minvalue, Integer maxvalue) {
+        return Task.where("{0} buscando el item ´" + item,
+                Enter.theValue(item).into(INPUT_BARRA_BUSQUEDA).thenHit(Keys.ENTER),
+                Enter.theValue(String.valueOf(minvalue)).into(INPUT_VALOR_MINIMO),
+                Enter.theValue(String.valueOf(maxvalue)).into(INPUT_VALOR_MAXIMO),
+                Click.on(BTN_APLICAR_FILTRO),
+                Click.on(ITEM_COMPRA)
         );
     }
 }
