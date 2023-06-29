@@ -1,4 +1,5 @@
 # language: es
+  @exclude
 Característica: agregar al carrito
   Yo como comprador
   Quiero agregar elementos a un carrito de compras

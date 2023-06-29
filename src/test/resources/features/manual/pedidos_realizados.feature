@@ -1,4 +1,5 @@
 # language: es
+  @exclude
 Característica:Pedidos Realizados
 
   @manual

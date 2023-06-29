@@ -1,25 +1,18 @@
 package com.amazon.stepdefinitions;
 
 import com.amazon.tasks.BuscarItem;
+import com.amazon.tasks.EsperarPara;
 import com.amazon.tasks.ClickLogo;
-import com.amazon.tasks.SeleccionarItem;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.EnterValue;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import org.openqa.selenium.Keys;
-import net.serenitybdd.screenplay.waits.Wait;
 
-import java.time.Duration;
-
-import static com.amazon.page.CabeceraPage.BUT_CARRITO;
-import static com.amazon.page.CabeceraPage.INPUT_BARRA_BUSQUEDA;
 import static com.amazon.page.CarritoPage.LIST_ITEMS;
+import static com.amazon.page.ResultadosBusqueda.BTN_CERRAR_MODAL_LATERAL;
 
 public class AgregarCarritoStepDefinitions {
 
@@ -28,14 +21,15 @@ public class AgregarCarritoStepDefinitions {
         OnStage.theActorCalled("comprador").attemptsTo(
                 Open.url("https://www.amazon.com"),
                 ClickLogo.clickLogo(),
-                BuscarItem.conEnvioColombia(item)
+                BuscarItem.conEnvioColombia(item),
+                Click.on(BTN_CERRAR_MODAL_LATERAL)
         );
     }
 
     @Entonces("debe verse {int} item(s) en el carrito de compras")
     public void verNumeroItemsEnCarrito(Integer numeroitems) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                Click.on(BUT_CARRITO),
+                EsperarPara.clickBotonCarrito(),
                 Ensure.that(LIST_ITEMS).textValues().hasSize(numeroitems)
         );
     }

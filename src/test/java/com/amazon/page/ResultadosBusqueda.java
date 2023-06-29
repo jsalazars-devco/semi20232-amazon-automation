@@ -10,4 +10,5 @@ public class ResultadosBusqueda {
     public static Target INPUT_VALOR_MINIMO = Target.the("valor minimo del filtro").located(By.id("low-price"));
     public static Target INPUT_VALOR_MAXIMO = Target.the("valor maximo del filtro").located(By.id("high-price"));
     public static Target BTN_APLICAR_FILTRO = Target.the("boton aplicar filtro").locatedBy("//input[@id='high-price']/following-sibling::*//input");
+    public static Target BTN_CERRAR_MODAL_LATERAL = Target.the("boton cerrar modal lateral").located(By.id("attach-close_sideSheet-link"));
 }
