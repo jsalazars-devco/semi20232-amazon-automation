@@ -11,7 +11,7 @@ import static com.amazon.page.ResultadosBusqueda.ITEM_COMPRA_ENVIO_COLOMBIA;
 public class ClickLogo {
     public static Performable clickLogo() {
         return Task.where("Click en el logo",
-                Click.on(LOGO)//nav-bb-logo
+                Click.on(LOGO)
         );
     }
 }
