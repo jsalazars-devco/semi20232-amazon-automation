@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -15,12 +17,8 @@ import static com.amazon.page.ResultadosBusqueda.*;
 
 public class BuscarItem {
     public static Performable conEnvioColombia(String item) {
-        try {
-            Thread.sleep(Duration.ofMillis(5000).toMillis());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return Task.where("{0} buscando el item ´" + item + "´ con envío a Colombia",
+                WaitUntil.the(INPUT_BARRA_BUSQUEDA, WebElementStateMatchers.isClickable()).forNoMoreThan(5).seconds(),
                 Enter.theValue(item).into(INPUT_BARRA_BUSQUEDA).thenHit(Keys.ENTER),
                 SeleccionarItem.conEnvioColombia()
         );

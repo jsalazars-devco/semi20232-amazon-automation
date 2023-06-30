@@ -5,6 +5,5 @@ Característica: verificar si la configuración de moneda persiste al cambiar de
   Para posteriormente comprar en la moneda de mi elección
 
   Escenario: verificar si la configuración de moneda persiste al cambiar de pagina y regresar
-    Dado que Juan cambia la configuracion de moneda a "COP"
-    Cuando va a la pagina "https://google.com" y regresa a la pagina de amazon
+    Cuando Juan cambia la configuracion de moneda a "COP"
     Entonces debe verse la configuracion de moneda "COP"

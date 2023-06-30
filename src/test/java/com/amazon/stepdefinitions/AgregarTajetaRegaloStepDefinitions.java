@@ -1,17 +1,14 @@
 package com.amazon.stepdefinitions;
 
-import com.amazon.tasks.ClickLogo;
+import com.amazon.tasks.EsperarPara;
 import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static com.amazon.page.CabeceraPage.*;
-import static com.amazon.page.CarritoPage.LIST_ITEMS;
 import static com.amazon.page.DetalleItem.*;
 import static com.amazon.page.ResultadosBusqueda.ITEM_TARJETA_REGALO;
 
@@ -21,10 +18,10 @@ public class AgregarTajetaRegaloStepDefinitions {
     public void buscoUnaTargetaRegalo() {
         OnStage.theActorCalled("comprador").attemptsTo(
                 Open.url("https://www.amazon.com"),
-                ClickLogo.clickLogo(),
+                Click.on(LOGO),
                 Click.on(TODO_MENU),
                 Click.on(TARJETAS_REGALO),
-                Click.on(TARJETAS_REGALO_ELECTRONICAS),
+                EsperarPara.clickTarjetasRegaloElectronicas(),
                 Click.on(ITEM_TARJETA_REGALO)
         );
     }

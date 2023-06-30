@@ -2,7 +2,6 @@ package com.amazon.stepdefinitions;
 
 import com.amazon.tasks.BuscarItem;
 import com.amazon.tasks.EsperarPara;
-import com.amazon.tasks.ClickLogo;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
@@ -11,6 +10,7 @@ import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
+import static com.amazon.page.CabeceraPage.LOGO;
 import static com.amazon.page.CarritoPage.LIST_ITEMS;
 import static com.amazon.page.ResultadosBusqueda.BTN_CERRAR_MODAL_LATERAL;
 
@@ -20,7 +20,7 @@ public class AgregarCarritoStepDefinitions {
     public void agregoUnItemAlCarrito(String item) {
         OnStage.theActorCalled("comprador").attemptsTo(
                 Open.url("https://www.amazon.com"),
-                ClickLogo.clickLogo(),
+                Click.on(LOGO),
                 BuscarItem.conEnvioColombia(item),
                 Click.on(BTN_CERRAR_MODAL_LATERAL)
         );
